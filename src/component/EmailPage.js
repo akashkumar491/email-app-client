@@ -25,7 +25,7 @@ const EmailPage = () => {
   const getAllEmails = async () => {
     try {
       const response = await axios.get(
-        "https://email-app-backend.vercel.app/api/emails/"
+        `${process.env.REACT_APP_BASE_URL}/`
       );
       console.log(response.data);
       setData(response.data);
@@ -38,7 +38,7 @@ const EmailPage = () => {
   const handleMAF = async () => {
     try {
       await axios.put(
-        `https://email-app-backend.vercel.app/api/emails/update/${selectedCard._id}`,
+        `${process.env.REACT_APP_BASE_URL}/update/${selectedCard._id}`,
         { isFavourite: true }
       );
       getAllEmails();
